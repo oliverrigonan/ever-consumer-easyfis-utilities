@@ -41,7 +41,7 @@ namespace EverConsumerUtilities.Print
                     Rectangle pagesize = new Rectangle(504, 792);
 
                     Document document = new Document(pagesize);
-                    document.SetMargins(50f, 50f, 55f, 0f);
+                    document.SetMargins(50f, 50f, 50f, 0f);
 
                     PdfWriter pdfWriter = PdfWriter.GetInstance(document, new FileStream(fileName, FileMode.Create));
 
@@ -56,7 +56,7 @@ namespace EverConsumerUtilities.Print
 
                     // Term
                     pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontTimesNewRoman7)) { Border = 0 });
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Term, fontTimesNewRoman7)) { Border = 0, Colspan = 2, PaddingLeft = 50f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Term, fontTimesNewRoman7)) { Border = 0, Colspan = 2, PaddingLeft = 50f, PaddingBottom = -8f });
 
                     // Customer, Address, Sales Person 
                     pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Customer + "\n" + deserializedSales.Address, fontTimesNewRoman7)) { Border = 0, Rowspan = 3 });
@@ -79,6 +79,8 @@ namespace EverConsumerUtilities.Print
                     document.Add(pdfTableSalesInvoiceHeader);
 
                     document.Close();
+
+                    //Process.Start(fileName);
 
                     ProcessStartInfo info = new ProcessStartInfo(fileName)
                     {
