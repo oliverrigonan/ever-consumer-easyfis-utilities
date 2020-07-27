@@ -45,4 +45,15 @@ namespace EverConsumerUtilities.Entities
         public String UpdatedBy { get; set; }
         public String UpdatedDateTime { get; set; }
     }
+
+    class TrnSalesInvoiceVATAnalysis
+    {
+        public Decimal VATSales { get; set; }
+        public Decimal VATZeroRatedSales { get; set; }
+        public Decimal VATExemptSales { get; set; }
+        public Decimal LessDiscount { get; set; }
+        public Decimal TotalSales { get; set; }
+        public Decimal VAT { get; set; }
+        public Decimal TotalAmountDue { get; set; }
+    }
 }

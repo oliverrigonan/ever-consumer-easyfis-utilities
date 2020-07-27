@@ -45,12 +45,6 @@
             this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.buttonGet = new System.Windows.Forms.Button();
             this.dataGridViewSalesInvoice = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
             this.ColumnButtonPrint = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSINumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +55,12 @@
             this.ColumnDocumentReference = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnIsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBoxBranch = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -234,63 +234,13 @@
             this.ColumnAmount,
             this.ColumnIsLocked});
             this.dataGridViewSalesInvoice.Location = new System.Drawing.Point(9, 59);
+            this.dataGridViewSalesInvoice.MultiSelect = false;
             this.dataGridViewSalesInvoice.Name = "dataGridViewSalesInvoice";
             this.dataGridViewSalesInvoice.ReadOnly = true;
             this.dataGridViewSalesInvoice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSalesInvoice.Size = new System.Drawing.Size(1156, 284);
             this.dataGridViewSalesInvoice.TabIndex = 6;
             this.dataGridViewSalesInvoice.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSalesInvoice_CellClick);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(285, 3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 20);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Branch";
-            // 
-            // comboBoxBranch
-            // 
-            this.comboBoxBranch.FormattingEnabled = true;
-            this.comboBoxBranch.Location = new System.Drawing.Point(289, 26);
-            this.comboBoxBranch.Name = "comboBoxBranch";
-            this.comboBoxBranch.Size = new System.Drawing.Size(234, 28);
-            this.comboBoxBranch.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(147, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 20);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "End Date";
-            // 
-            // dateTimePickerEndDate
-            // 
-            this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerEndDate.Location = new System.Drawing.Point(151, 26);
-            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
-            this.dateTimePickerEndDate.Size = new System.Drawing.Size(132, 27);
-            this.dateTimePickerEndDate.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Start Date";
-            // 
-            // dateTimePickerStartDate
-            // 
-            this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerStartDate.Location = new System.Drawing.Point(9, 26);
-            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
-            this.dateTimePickerStartDate.Size = new System.Drawing.Size(132, 27);
-            this.dateTimePickerStartDate.TabIndex = 0;
             // 
             // ColumnButtonPrint
             // 
@@ -362,6 +312,57 @@
             this.ColumnIsLocked.Name = "ColumnIsLocked";
             this.ColumnIsLocked.ReadOnly = true;
             this.ColumnIsLocked.Width = 50;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(285, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 20);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Branch";
+            // 
+            // comboBoxBranch
+            // 
+            this.comboBoxBranch.FormattingEnabled = true;
+            this.comboBoxBranch.Location = new System.Drawing.Point(289, 26);
+            this.comboBoxBranch.Name = "comboBoxBranch";
+            this.comboBoxBranch.Size = new System.Drawing.Size(234, 28);
+            this.comboBoxBranch.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(147, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 20);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "End Date";
+            // 
+            // dateTimePickerEndDate
+            // 
+            this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(151, 26);
+            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
+            this.dateTimePickerEndDate.Size = new System.Drawing.Size(132, 27);
+            this.dateTimePickerEndDate.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Start Date";
+            // 
+            // dateTimePickerStartDate
+            // 
+            this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(9, 26);
+            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
+            this.dateTimePickerStartDate.Size = new System.Drawing.Size(132, 27);
+            this.dateTimePickerStartDate.TabIndex = 0;
             // 
             // SalesInvoiceForm
             // 

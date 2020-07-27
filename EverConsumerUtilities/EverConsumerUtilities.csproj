@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Entities\MstBranch.cs" />
     <Compile Include="Entities\TrnSalesInvoice.cs" />
+    <Compile Include="Entities\TrnSalesInvoiceItem.cs" />
     <Compile Include="Forms\SalesInvoiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
