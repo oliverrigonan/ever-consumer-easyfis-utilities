@@ -41,7 +41,7 @@ namespace EverConsumerUtilities.Print
                     Rectangle pagesize = new Rectangle(504, 792);
 
                     Document document = new Document(pagesize);
-                    document.SetMargins(50f, 50f, 175f, 140f);
+                    document.SetMargins(50f, 50f, 168f, 140f);
 
                     PdfWriter pdfWriter = PdfWriter.GetInstance(document, new FileStream(fileName, FileMode.Create));
 
@@ -121,20 +121,22 @@ namespace EverConsumerUtilities.Print
 
                     document.Close();
 
-                    ProcessStartInfo info = new ProcessStartInfo(fileName)
-                    {
-                        Verb = "Print",
-                        CreateNoWindow = true,
-                        WindowStyle = ProcessWindowStyle.Hidden
-                    };
+                    Process.Start(fileName);
 
-                    Process printDwg = new Process
-                    {
-                        StartInfo = info
-                    };
+                    //ProcessStartInfo info = new ProcessStartInfo(fileName)
+                    //{
+                    //    Verb = "Print",
+                    //    CreateNoWindow = true,
+                    //    WindowStyle = ProcessWindowStyle.Hidden
+                    //};
 
-                    printDwg.Start();
-                    printDwg.Close();
+                    //Process printDwg = new Process
+                    //{
+                    //    StartInfo = info
+                    //};
+
+                    //printDwg.Start();
+                    //printDwg.Close();
                 }
             }
             catch (Exception ex)
@@ -182,6 +184,9 @@ namespace EverConsumerUtilities.Print
                     pdfTableSalesInvoiceHeader.LockedWidth = true;
                     pdfTableSalesInvoiceHeader.SetWidths(new float[] { 50f, 25f, 25f });
 
+                    // SI Number
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.SINumber, fontVerdana7)) { Border = 0, Colspan = 3, HorizontalAlignment = 2 });
+
                     // Invoice date
                     pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.SIDate, fontVerdana7)) { Border = 0, Colspan = 3, HorizontalAlignment = 2, PaddingBottom = 12f });
 
@@ -207,7 +212,7 @@ namespace EverConsumerUtilities.Print
                     pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Remarks, fontVerdana7)) { Border = 0, PaddingLeft = 30f });
                     pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana7)) { Border = 0, Colspan = 2 });
 
-                    pdfTableSalesInvoiceHeader.WriteSelectedRows(0, -1, document.LeftMargin, writer.PageSize.GetTop(document.TopMargin - 125f), writer.DirectContent);
+                    pdfTableSalesInvoiceHeader.WriteSelectedRows(0, -1, document.LeftMargin, writer.PageSize.GetTop(document.TopMargin - 132f), writer.DirectContent);
 
                     // Footer - VAT Analysis
                     PdfPTable pdfTableSalesInvoiceFooter = new PdfPTable(1);
