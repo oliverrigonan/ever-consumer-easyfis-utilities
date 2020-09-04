@@ -31,11 +31,7 @@ namespace EverConsumerUtilities.Print
 
                     String fileName = "SalesInvoiceDetail_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf";
 
-                    Font fontVerdana7 = FontFactory.GetFont("Verdana", 7);
-                    Font fontVerdana10 = FontFactory.GetFont("Verdana", 10);
-                    Font fontVerdana10Italic = FontFactory.GetFont("Verdana", 10, Font.ITALIC);
-                    Font fontVerdana11 = FontFactory.GetFont("Verdana", 11);
-                    Font fontVerdana11Bold = FontFactory.GetFont("Verdana", 11, Font.BOLD);
+                    Font fontVerdana9 = FontFactory.GetFont("Verdana", 9);
 
                     Paragraph line = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.5F, 100.0F, BaseColor.DARK_GRAY, Element.ALIGN_MIDDLE, 10F)));
                     Rectangle pagesize = new Rectangle(504, 792);
@@ -98,13 +94,13 @@ namespace EverConsumerUtilities.Print
 
                             foreach (var salesInvoiceItem in deserializedSalesInvoiceItems)
                             {
-                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.ItemDescription, fontVerdana7)) { Border = 0 });
-                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.BarcCode, fontVerdana7)) { Border = 0 });
-                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(" ", fontVerdana7)) { Border = 0 });
-                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Quantity.ToString("#,##0"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
-                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Unit, fontVerdana7)) { Border = 0 });
-                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Price.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
-                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Amount.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
+                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.ItemDescription, fontVerdana9)) { Border = 0 });
+                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.BarcCode, fontVerdana9)) { Border = 0 });
+                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(" ", fontVerdana9)) { Border = 0 });
+                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Quantity.ToString("#,##0"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
+                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Unit, fontVerdana9)) { Border = 0 });
+                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Price.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
+                                pdfTableSalesInvoiceItems.AddCell(new PdfPCell(new Phrase(salesInvoiceItem.Amount.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
                             }
 
                             document.Add(pdfTableSalesInvoiceItems);
@@ -172,11 +168,7 @@ namespace EverConsumerUtilities.Print
                     JavaScriptSerializer js = new JavaScriptSerializer();
                     Entities.TrnSalesInvoice deserializedSales = (Entities.TrnSalesInvoice)js.Deserialize(result, typeof(Entities.TrnSalesInvoice));
 
-                    Font fontVerdana7 = FontFactory.GetFont("Verdana", 7);
-                    Font fontVerdana10 = FontFactory.GetFont("Verdana", 10);
-                    Font fontVerdana10Italic = FontFactory.GetFont("Verdana", 10, Font.ITALIC);
-                    Font fontVerdana11 = FontFactory.GetFont("Verdana", 11);
-                    Font fontVerdana11Bold = FontFactory.GetFont("Verdana", 11, Font.BOLD);
+                    Font fontVerdana9 = FontFactory.GetFont("Verdana", 9);
 
                     PdfPTable pdfTableSalesInvoiceHeader = new PdfPTable(3);
                     pdfTableSalesInvoiceHeader.DefaultCell.Border = 0;
@@ -185,32 +177,32 @@ namespace EverConsumerUtilities.Print
                     pdfTableSalesInvoiceHeader.SetWidths(new float[] { 50f, 25f, 25f });
 
                     // SI Number
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.SINumber, fontVerdana7)) { Border = 0, Colspan = 3, HorizontalAlignment = 2 });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.SINumber, fontVerdana9)) { Border = 0, Colspan = 3, HorizontalAlignment = 2 });
 
                     // Invoice date
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.SIDate, fontVerdana7)) { Border = 0, Colspan = 3, HorizontalAlignment = 2, PaddingBottom = 12f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.SIDate, fontVerdana9)) { Border = 0, Colspan = 3, HorizontalAlignment = 2, PaddingBottom = 12f });
 
                     // Term
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana7)) { Border = 0 });
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Term, fontVerdana7)) { Border = 0, Colspan = 2, PaddingLeft = 50f, PaddingBottom = -8f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana9)) { Border = 0 });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Term, fontVerdana9)) { Border = 0, Colspan = 2, PaddingLeft = 50f, PaddingBottom = -8f });
 
                     // Customer, Address, Sales Person 
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Customer + "\n" + deserializedSales.Address, fontVerdana7)) { Border = 0, Rowspan = 3 });
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.SoldBy, fontVerdana7)) { Border = 0, Colspan = 2, PaddingLeft = 50f, PaddingBottom = 12f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Customer + "\n" + deserializedSales.Address, fontVerdana9)) { Border = 0, Rowspan = 3 });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.SoldBy, fontVerdana9)) { Border = 0, Colspan = 2, PaddingLeft = 50f, PaddingBottom = 12f });
 
                     // SO Number Etc...
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.ManualSONumber, fontVerdana7)) { Border = 0, PaddingLeft = 50f });
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana7)) { Border = 0, PaddingLeft = 50f });
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana7)) { Border = 0, PaddingLeft = 50f });
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana7)) { Border = 0, PaddingLeft = 50f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.ManualSONumber, fontVerdana9)) { Border = 0, PaddingLeft = 50f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana9)) { Border = 0, PaddingLeft = 50f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana9)) { Border = 0, PaddingLeft = 50f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana9)) { Border = 0, PaddingLeft = 50f });
 
                     // TIN and Business Style
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.TIN, fontVerdana7)) { Border = 0, PaddingLeft = 30f });
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.CustomerGroup, fontVerdana7)) { Border = 0, Colspan = 2, PaddingLeft = 70f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.TIN, fontVerdana9)) { Border = 0, PaddingLeft = 30f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.CustomerGroup, fontVerdana9)) { Border = 0, Colspan = 2, PaddingLeft = 70f });
 
                     // Notes
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Remarks, fontVerdana7)) { Border = 0, PaddingLeft = 30f });
-                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana7)) { Border = 0, Colspan = 2 });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(deserializedSales.Remarks, fontVerdana9)) { Border = 0, PaddingLeft = 30f });
+                    pdfTableSalesInvoiceHeader.AddCell(new PdfPCell(new Phrase(" ", fontVerdana9)) { Border = 0, Colspan = 2 });
 
                     pdfTableSalesInvoiceHeader.WriteSelectedRows(0, -1, document.LeftMargin, writer.PageSize.GetTop(document.TopMargin - 132f), writer.DirectContent);
 
@@ -220,13 +212,13 @@ namespace EverConsumerUtilities.Print
                     pdfTableSalesInvoiceFooter.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
                     pdfTableSalesInvoiceFooter.LockedWidth = true;
                     pdfTableSalesInvoiceFooter.SetWidths(new float[] { 100f });
-                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.VATSales.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
-                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.VATZeroRatedSales.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
-                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.VATExemptSales.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
-                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.LessDiscount.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
-                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.TotalSales.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
-                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.VAT.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
-                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.TotalAmountDue.ToString("#,##0.00"), fontVerdana7)) { Border = 0, HorizontalAlignment = 2 });
+                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.VATSales.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
+                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.VATZeroRatedSales.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
+                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.VATExemptSales.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
+                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.LessDiscount.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
+                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.TotalSales.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
+                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.VAT.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
+                    pdfTableSalesInvoiceFooter.AddCell(new PdfPCell(new Phrase(VATAnalysis.TotalAmountDue.ToString("#,##0.00"), fontVerdana9)) { Border = 0, HorizontalAlignment = 2 });
                     pdfTableSalesInvoiceFooter.WriteSelectedRows(0, -1, document.LeftMargin, writer.PageSize.GetBottom(document.BottomMargin - 20f), writer.DirectContent);
                 }
             }
