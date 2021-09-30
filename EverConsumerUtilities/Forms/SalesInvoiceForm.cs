@@ -26,9 +26,11 @@ namespace EverConsumerUtilities.Forms
         {
             try
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 List<Entities.MstBranch> branches = new List<Entities.MstBranch>();
 
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://everconsumer.easyfis.com/api/everConsumerIntegration/salesInvoice/dropdown/list/branch");
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://mjr.liteclerk.com/api/everConsumerIntegration/salesInvoice/dropdown/list/branch");
                 httpWebRequest.Method = "GET";
                 httpWebRequest.Accept = "application/json";
 
@@ -81,7 +83,9 @@ namespace EverConsumerUtilities.Forms
                 String branchCode = comboBoxBranch.SelectedValue.ToString();
                 String filter = textBoxFilter.Text;
 
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://everconsumer.easyfis.com/api/everConsumerIntegration/salesInvoice/list/" + startDate + "/" + endDate + "/" + branchCode);
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://mjr.liteclerk.com/api/everConsumerIntegration/salesInvoice/list/" + startDate + "/" + endDate + "/" + branchCode);
                 httpWebRequest.Method = "GET";
                 httpWebRequest.Accept = "application/json";
 

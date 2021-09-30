@@ -164,9 +164,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 20);
+            this.label2.Size = new System.Drawing.Size(150, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Ever Consumer Easyfis Utilities";
+            this.label2.Text = "MJR Easyfis Utilities";
             // 
             // MainForm
             // 
@@ -182,7 +182,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ever Consumer Easyfis Utilities";
+            this.Text = "MJR Easyfis Utilities";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
